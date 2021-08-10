@@ -1,9 +1,9 @@
 // Creating init function to load initial data
 function init(){
-    var dropdown = d3.select("selDataset");
+    var dropdown = d3.select("#selDataset");
     d3.json("./samples.json").then((data) => {
         data.names.forEach((name)=> {
-            dropdown.append("option").text(name);
+            dropdown.append("option").text(name).property("value");
         });
         demInfo(data.names[0]);
         generatePlot(data.names[0]);
